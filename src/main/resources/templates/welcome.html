@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>  Welcome  </title>
+    <title>Welcome</title>
 </head>
 
 <body>
-<h2 >Select Existing Channel</h2>
-<div>
-    <a href="/channels/general">General Channel</a> <!-- Link to the General Channel -->
-</div>
-<div>
-    <h3>Create a New Channel</h3>
-    <form action="/createChannel" method="post">
-        <label for="channelName">Channel Name:</label>
-        <input type="text" id="channelName" name="channelName" required>
-        <button type="submit">Create Channel</button>
-    </form>
-</div>
+    <h2>Select Existing Channel</h2>
+    <div>
+        <a href="/channels/general">General Channel</a> <!-- Link to the General Channel -->
+    </div>
+    <div>
+        <h2>Create a New Channel</h2>
+        <form id="create-channel-form">
+            <label for="channelName">Channel Name:</label>
+            <input type="text" id="channelName" name="channelName" required>
+            <button type="submit">Create Channel</button>
+        </form>
+    </div>
 
-<script type="text/javascript" src="/js/welcome.js"></script>
+    <script type="text/javascript" src="/js/welcome.js"></script>
 </body>
 </html>
