@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>General Channel</title>
+</head>
+<body>
+    <h2>Welcome to the General Channel</h2>
+    
+    <!-- Display chat messages here -->
+    <div>
+        <ul>
+            <li th:each="message : ${chatMessages}">
+                <span th:text="${message.sender}"></span>: <span th:text="${message.content}"></span>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Form to create a new channel -->
+    <form th:action="@{/createChannel}" method="post">
+        <input type="text" name="channelName" placeholder="Enter channel name" required>
+        <button type="submit">Create Channel</button>
+    </form>
+</body>
+</html>

@@ -1,6 +1,10 @@
 package com.coderscampus.assignment14.domain;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.coderscampus.assignment14.repository.ChannelRepository;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
