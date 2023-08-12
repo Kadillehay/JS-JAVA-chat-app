@@ -5,9 +5,13 @@
 </head>
 
 <body>
+
     <h2>Select Existing Channel</h2>
     <div>
         <a href="/channels/general">General Channel</a> <!-- Link to the General Channel -->
+    </div>
+    <div th:if="${newChannel}">
+        <p>New channel created: <span th:text="${newChannel.channelName}"></span></p>
     </div>
     <div>
         <h2>Create a New Channel</h2>

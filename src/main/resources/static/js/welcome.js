@@ -1,5 +1,19 @@
+// Wait for the DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function() {
-    // ... (rest of your code)
+    // Check if the user's name is already stored in sessionStorage
+    var name = sessionStorage.getItem("userName");
+
+    // If the user's name is not stored, prompt for it
+         if (!name) {
+        name = prompt("Please enter your name", "John Doe");
+        if (name) {
+            // Store the user's name in sessionStorage
+            sessionStorage.setItem("userName", name);
+            alert("Welcome, " + name + "!");
+        } else {
+            alert("Welcome!");
+        }
+    }
 
     // Handle the creation of a new channel
     var createChannelForm = document.getElementById("create-channel-form");
@@ -31,4 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+    // TODO: Add your other code here if needed
+    // ... (rest of your code)
 });
