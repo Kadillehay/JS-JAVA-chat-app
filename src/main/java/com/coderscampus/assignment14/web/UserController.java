@@ -17,12 +17,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	@Autowired
-    private ChannelService channelService;
+	private ChannelService channelService;
 
 	@GetMapping("/welcome")
 	public String getWelcome(Model model) {
-		   List<Channel> existingChannels = channelService.getAllChannels();
-	        model.addAttribute("existingChannels", existingChannels);
+		List<Channel> existingChannels = channelService.getAllChannels();
+		model.addAttribute("existingChannels", existingChannels);
 		return "welcome";
 	}
 }

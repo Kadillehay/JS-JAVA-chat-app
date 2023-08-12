@@ -28,17 +28,17 @@ public class ChannelService {
 
 	public Channel createChannel(String channelName) {
 		Channel existingChannel = channelRepo.findByChannelName(channelName);
-	    if (existingChannel != null) {
-	        // Handle the case of duplicate channel name (e.g., generate a unique name)
-	        // You can also throw an exception or show an error message to the user
-	        // For simplicity, let's return null
-	        return null;
-	    }
+		if (existingChannel != null) {
+			// Handle the case of duplicate channel name (e.g., generate a unique name)
+			// You can also throw an exception or show an error message to the user
+			// For simplicity, let's return null
+			return null;
+		}
 
-	    Channel channel = new Channel();
-	    channel.setChannelName(channelName);
-	    // You might generate a unique channelId here if needed
-	    return channelRepo.save(channel);
+		Channel channel = new Channel();
+		channel.setChannelName(channelName);
+		// You might generate a unique channelId here if needed
+		return channelRepo.save(channel);
 	}
 
 	public Channel findByChannelName(String channelName) {

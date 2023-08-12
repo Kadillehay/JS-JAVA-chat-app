@@ -25,14 +25,9 @@ public class Channel {
 	private User user; // Reference to the User entity
 
 	@ManyToMany
-	    @JoinTable(
-	        name = "channel_members",
-	        joinColumns = @JoinColumn(name = "channel_id"),
-	        inverseJoinColumns = @JoinColumn(name = "user_id")
-	        )
-	
-	
-	private List <User> members;
+	@JoinTable(name = "channel_members", joinColumns = @JoinColumn(name = "channel_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+
+	private List<User> members;
 
 	public String getChannelName() {
 		return channelName;
@@ -65,6 +60,5 @@ public class Channel {
 	public void setMembers(List<User> members) {
 		this.members = members;
 	}
-	
 
 }

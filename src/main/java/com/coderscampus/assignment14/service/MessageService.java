@@ -11,23 +11,23 @@ import com.coderscampus.assignment14.repository.MessageRepository;
 
 @Service
 public class MessageService {
-	
-    @Autowired
-    private MessageRepository messageRepository;
-    @Autowired
-    private ChannelService channelService;
 
-    // Implement methods to interact with the repository
-    public List<Message> getAllMessages() {
-        return messageRepository.findAll();
-    }
+	@Autowired
+	private MessageRepository messageRepository;
+	@Autowired
+	private ChannelService channelService;
 
-    public void saveMessage(Message message) {
-        messageRepository.save(message);
-    }
+	// Implement methods to interact with the repository
+	public List<Message> getAllMessages() {
+		return messageRepository.findAll();
+	}
+
+	public void saveMessage(Message message) {
+		messageRepository.save(message);
+	}
 
 	public List<Message> getMessagesForChannel(String channelName) {
-		 Channel channel = channelService.findByChannelName(channelName);
+		Channel channel = channelService.findByChannelName(channelName);
 		return messageRepository.findByChannel(channel);
 	}
 

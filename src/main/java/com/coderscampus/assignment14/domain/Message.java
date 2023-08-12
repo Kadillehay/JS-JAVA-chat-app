@@ -20,11 +20,10 @@ public class Message {
 	private Long id;
 	private String sender;
 	private String content;
-	private LocalDateTime timestamp; 
-	 @ManyToOne(fetch = FetchType.LAZY) // Many messages can belong to one channel
-	    @JoinColumn(name = "channel_id") // Name of the foreign key column in the messages table
-	    private Channel channel; 
-	
+	private LocalDateTime timestamp;
+	@ManyToOne(fetch = FetchType.LAZY) // Many messages can belong to one channel
+	@JoinColumn(name = "channel_id") // Name of the foreign key column in the messages table
+	private Channel channel;
 
 	public Long getId() {
 		return id;
@@ -58,7 +57,6 @@ public class Message {
 		this.timestamp = timestamp;
 	}
 
-
 	public Channel getChannel() {
 		return channel;
 	}
@@ -66,7 +64,5 @@ public class Message {
 	public void setChannel(Channel channel) {
 		this.channel = channel;
 	}
-	
-	
 
 }
