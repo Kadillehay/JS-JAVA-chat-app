@@ -23,6 +23,8 @@ public class UserController {
 	public String getWelcome(Model model) {
 		List<Channel> existingChannels = channelService.getAllChannels();
 		model.addAttribute("existingChannels", existingChannels);
-		return "welcome";
+		
+		return "/welcome";
+		
 	}
 }

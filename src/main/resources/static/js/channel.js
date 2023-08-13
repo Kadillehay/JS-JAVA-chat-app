@@ -6,13 +6,14 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 
 	const channelName = window.location.pathname.split("/").pop();
+	console.log(channelName);
 
 	const chatMessagesElement = document.getElementById("chatMessages");
 
 	function pollMessages() {
 		console.log("about to his the fetch")
 		fetch(`/channels/${channelName}/messages`)
-		console.log("value of the channel name here?", channelName)
+		console.log("value of the channel name here", channelName)
 			.then(response => response.json())
 			.then(messages => {
 				chatMessagesElement.innerHTML = ""; 

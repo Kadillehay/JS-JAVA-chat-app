@@ -29,7 +29,9 @@ document.addEventListener("DOMContentLoaded", function() {
 				})
 					.then(function(response) {
 						if (response.ok) {
-							window.location.href = "/channels/" + encodeURIComponent(channelName);
+							console.log(channelName)
+							window.location = "/channels/" + encodeURIComponent(channelName);
+							console.log(channelName)
 						} else {
 							alert("Failed to create channel.");
 						}
