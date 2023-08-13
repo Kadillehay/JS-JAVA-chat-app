@@ -17,7 +17,6 @@ public class MessageService {
 	@Autowired
 	private ChannelService channelService;
 
-	// Implement methods to interact with the repository
 	public List<Message> getAllMessages() {
 		return messageRepository.findAll();
 	}

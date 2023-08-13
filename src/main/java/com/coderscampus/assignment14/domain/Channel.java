@@ -21,8 +21,8 @@ public class Channel {
 
 	private Long channelId;
 	private String channelName;
-	@ManyToOne // Many channels can belong to one user
-	private User user; // Reference to the User entity
+	@ManyToOne
+	private User user;
 
 	@ManyToMany
 	@JoinTable(name = "channel_members", joinColumns = @JoinColumn(name = "channel_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))

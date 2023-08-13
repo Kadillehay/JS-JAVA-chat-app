@@ -21,35 +21,32 @@ import com.coderscampus.assignment14.service.MessageService;
 public class ChannelController {
 
 	@Autowired
-    private ChannelService channelService;
+	private ChannelService channelService;
 	@Autowired
 	private MessageService messageService;
-	
-	
-	
+
 	@PostMapping("/createChannel")
 	public String createChannel(@RequestParam String channelName, Model model) {
-		    // Attempt to create the channel
-		   Channel newChannel = channelService.createChannel(channelName);
-		    if (newChannel == null) {
-		        model.addAttribute("channelCreationError", true);
-		    } else {
-		        model.addAttribute("newChannel", newChannel);
-		    }
-		    return "welcome";
+		Channel newChannel = channelService.createChannel(channelName);
+		if (newChannel == null) {
+			model.addAttribute("channelCreationError", true);
+		} else {
+			model.addAttribute("newChannel", newChannel);
+		}
+		return "welcome";
 	}
-	 
-	 @GetMapping("/channels/{channelName}")
-	 public String showChannelPage(@PathVariable String channelName, Model model) {
-	     List<Message> chatMessages = messageService.getMessagesForChannel(channelName);
-	     List<Channel> existingChannels = channelService.getAllChannels();
-	     model.addAttribute("channelName", channelName);
-	     model.addAttribute("chatMessages", chatMessages);
-	     model.addAttribute("existingChannels", existingChannels);
-	     return "channel"; // Replace with the actual name of your channel view template
-	   
-	 }
-	 
+
+	@GetMapping("/channels/{channelName}")
+	public String showChannelPage(@PathVariable String channelName, Model model) {
+		List<Message> chatMessages = messageService.getMessagesForChannel(channelName);
+		List<Channel> existingChannels = channelService.getAllChannels();
+		model.addAttribute("channelName", channelName);
+		model.addAttribute("chatMessages", chatMessages);
+		model.addAttribute("existingChannels", existingChannels);
+		return "channel";
+
+	}
+
 //	 @PostMapping("/sendMessage")
 //	 public ResponseEntity<String> sendMessage(@RequestBody Message message) {
 //	     // Set the channel for the message
@@ -61,7 +58,5 @@ public class ChannelController {
 //
 //	     return ResponseEntity.ok().build();
 //	 }
-	 
-	 
-}
 
+}

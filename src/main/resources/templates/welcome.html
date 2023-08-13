@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Welcome</title>
+<title>Welcome</title>
 </head>
 <body>
-    <h2>Select Existing Channel</h2>
-    
-    <!-- General Channel -->
-    <div>
-        <a href="/channels/general">General Channel</a>
-    </div>
-    
-    <!-- Channels created by users -->
-    <h3>Channels Created by Users</h3>
-    <ul>
-        <li th:each="channel : ${existingChannels}">
-            <a th:href="@{/channels/{channelName}(channelName=${channel.channelName})}" th:text="${channel.channelName}"></a>
-        </li>
-    </ul>
-    <div th:if="${channelCreationError}">
-    <p style="color: red;">Oops, looks like that channel has already been created!</p>
-</div>
-    <!-- Form to create a new channel -->
-    <div>
-        <h2>Create a New Channel</h2>
-        <form id="create-channel-form" th:action="@{/createChannel}" method="post">
-            <label for="channelName">Channel Name:</label>
-            <input type="text" id="channelName" name="channelName" required>
-            <button type="submit">Create Channel</button>
-        </form>
-    </div>
+	<h2>Select Existing Channel</h2>
 
-    <script type="text/javascript" src="/js/welcome.js"></script>
+
+	<div>
+		<a href="/channels/general">General Channel</a>
+	</div>
+
+
+	<h3>Channels Created by Users</h3>
+	<ul>
+		<li th:each="channel : ${existingChannels}"><a
+			th:href="@{/channels/{channelName}(channelName=${channel.channelName})}"
+			th:text="${channel.channelName}"></a></li>
+	</ul>
+	<div th:if="${channelCreationError}">
+		<p style="color: red;">Oops, looks like that channel has already
+			been created!</p>
+	</div>
+
+	<div>
+		<h2>Create a New Channel</h2>
+		<form id="create-channel-form" th:action="@{/createChannel}"
+			method="post">
+			<label for="channelName">Channel Name:</label> <input type="text"
+				id="channelName" name="channelName" required>
+			<button type="submit">Create Channel</button>
+		</form>
+	</div>
+
+	<script type="text/javascript" src="/js/welcome.js"></script>
 </body>
 </html>

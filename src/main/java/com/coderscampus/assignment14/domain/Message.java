@@ -21,8 +21,8 @@ public class Message {
 	private String sender;
 	private String content;
 	private LocalDateTime timestamp;
-	@ManyToOne(fetch = FetchType.LAZY) // Many messages can belong to one channel
-	@JoinColumn(name = "channel_id") // Name of the foreign key column in the messages table
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "channel_id")
 	private Channel channel;
 
 	public Long getId() {
