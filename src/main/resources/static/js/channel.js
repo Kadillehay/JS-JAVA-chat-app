@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
-	const user = sessionStorage.getItem("user");
+	const user = sessionStorage.getItem("userName");
 	if (!user) {
-		window.location.href = "/welcome";
+		//window.location.href = "/welcome";
 		return;
 	}
 
