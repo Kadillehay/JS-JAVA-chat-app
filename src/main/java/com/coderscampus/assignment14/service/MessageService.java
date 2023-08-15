@@ -29,5 +29,6 @@ public class MessageService {
 		Channel channel = channelService.findByChannelName(channelName);
 		return messageRepository.findByChannel(channel);
 	}
+	
 
 }
